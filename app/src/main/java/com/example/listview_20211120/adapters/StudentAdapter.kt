@@ -40,9 +40,9 @@ class StudentAdapter(
         // UI의 데이터에서 필요한 변수 추출 반영
         txtStudentName.text = data.name
 
-        val age = 2021-data.birthYear
+        val age = 2021 - data.birthYear + 1
+        txtStudentAge.text = "(${age} 세)"
 
-        txtStudentAge.text = age.toString() + "세"
         txtStudentAddress.text = data.address
 
         // row에 담긴 xml을 화면에 뿌려주게 내보내자.
