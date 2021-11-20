@@ -30,9 +30,18 @@ class MainActivity : AppCompatActivity() {
         studentListView.adapter = mStudentAdapter
 
         studentListView.setOnItemClickListener { adapterView, view, position, l ->
-
+            // position : 몇번째 줄이 눌렸는지 알려줌
             val clickedStudent = mStudentList[position]
             Toast.makeText(this, "${clickedStudent.name} 클릭됨", Toast.LENGTH_SHORT).show()
+        }
+
+        studentListView.setOnItemLongClickListener { adapterView, view, position, l ->
+            // 길게 눌렸을 때의 별도 행동
+
+            val longClickedStudent = mStudentList[position]
+            Toast.makeText(this, "${longClickedStudent.name} 길게 클릭됨", Toast.LENGTH_SHORT).show()
+
+            return@setOnItemLongClickListener true
         }
     }
 }
