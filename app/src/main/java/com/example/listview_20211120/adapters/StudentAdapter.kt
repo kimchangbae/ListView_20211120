@@ -40,8 +40,8 @@ class StudentAdapter(
         // UI의 데이터에서 필요한 변수 추출 반영
         txtStudentName.text = data.name
 
-        val age = 2021 - data.birthYear + 1
-        txtStudentAge.text = "(${age} 세)"
+        //val age = 2021 - data.birthYear + 1
+        txtStudentAge.text = "(${data.getAgeByYear(2021)} 세)"
 
         txtStudentAddress.text = data.address
 
