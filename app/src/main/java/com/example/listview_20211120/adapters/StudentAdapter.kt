@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.example.listview_20211120.R
 import com.example.listview_20211120.datas.StudentData
 
@@ -25,8 +26,26 @@ class StudentAdapter(
             tempRow = mInflater.inflate(R.layout.student_list_item, null)
         }
 
+        // xml -> row변수에 담아두자.
         val row = tempRow!!
 
+        // row를 실제 데이터로 가공해주고 근거 데이터를 가져오자.
+        val data = mList[position]
+
+        // 뿌려질 UI들을 가져오자. row 내부에서 찾아오자
+        val txtStudentName      = row.findViewById<TextView>(R.id.txtStudentName)
+        val txtStudentAge       = row.findViewById<TextView>(R.id.txtStudentAge)
+        val txtStudentAddress   = row.findViewById<TextView>(R.id.txtStudentAddress)
+
+        // UI의 데이터에서 필요한 변수 추출 반영
+        txtStudentName.text = data.name
+
+        val age = 2021-data.birthYear
+
+        txtStudentAge.text = age.toString() + "세"
+        txtStudentAddress.text = data.address
+
+        // row에 담긴 xml을 화면에 뿌려주게 내보내자.
         return row
     }
 }
