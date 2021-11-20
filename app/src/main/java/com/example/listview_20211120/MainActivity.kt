@@ -2,6 +2,7 @@ package com.example.listview_20211120
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.listview_20211120.adapters.StudentAdapter
 import com.example.listview_20211120.datas.StudentData
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,5 +28,11 @@ class MainActivity : AppCompatActivity() {
         mStudentAdapter = StudentAdapter(this, R.layout.student_list_item, mStudentList)
 
         studentListView.adapter = mStudentAdapter
+
+        studentListView.setOnItemClickListener { adapterView, view, position, l ->
+
+            val clickedStudent = mStudentList[position]
+            Toast.makeText(this, "${clickedStudent.name} 클릭됨", Toast.LENGTH_SHORT).show()
+        }
     }
 }
